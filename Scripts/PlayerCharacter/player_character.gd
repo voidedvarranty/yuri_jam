@@ -1,9 +1,16 @@
 extends CharacterBody3D
 
 @onready var statistic_list: StatisticList = $StatisticList
-@onready var camera: Camera3D = $Camera3D
+@onready var camera: Camera3D = $Neck/Head/Camera3D
 @onready var player_main_state_engine: StateEngine = $StateEngine
+@onready var shoulders: Node3D = $PlayerBody/Shoulders
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
+#bobbing values
+var time: float = 0
+@export var frequency: float = 1.5
+@export var amplitude: float = 0.1
 
 
 var is_in_air: bool = false:
@@ -24,11 +31,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+#func _process(delta: float) -> void:
+	
 
 func _physics_process(delta: float) -> void:
-	
-	#print(transform.basis, "\n", statistic_list.get_value_of("movementdirection"), "\n", is_on_floor())
-	
+	time += delta
+	shoulders.position.y = sin(time * frequency) * amplitude
 	statistic_list.set_value_of("inputdirection", Input.get_vector("move_left", "move_right", "move_up", "move_down"))
 	statistic_list.set_value_of("movementdirection",(transform.basis * Vector3(statistic_list.get_value_of("inputdirection").x, 0, statistic_list.get_value_of("inputdirection").y)).normalized() + Vector3(0, statistic_list.get_value_of("movementdirection").y, 0))
 	

@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		_current_state.physics_update(delta)
 
 func enter() -> void:
+	
 	if _current_state != null:
 		return
 		
