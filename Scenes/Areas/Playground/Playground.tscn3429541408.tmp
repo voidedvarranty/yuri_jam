@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ccsuopn7psx67"]
+
+[ext_resource type="PackedScene" uid="uid://0aw6o2kqpo31" path="res://Scenes/PlayerCharacter/PlayerCharacter.tscn" id="1_crda1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yyjb0"]
+top_radius = 46.68457
+bottom_radius = 46.68457
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uiqrb"]
+height = 25.494629
+
+[node name="Playground" type="Node3D" unique_id=535879322]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1671727962]
+mesh = SubResource("CylinderMesh_yyjb0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1695831365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.912033, 0)
+mesh = SubResource("CylinderMesh_uiqrb")
+
+[node name="PlayerCharacter" parent="." unique_id=308607481 instance=ExtResource("1_crda1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0920634, 3.4132247, 1.185811)

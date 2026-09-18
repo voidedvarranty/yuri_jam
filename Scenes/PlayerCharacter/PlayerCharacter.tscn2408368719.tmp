@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://0aw6o2kqpo31"]
+
+[ext_resource type="Script" uid="uid://chyhgvd3ylhoy" path="res://Scripts/PlayerCharacter/player_character.gd" id="1_xbcx4"]
+[ext_resource type="Script" uid="uid://butxpb03fjp7b" path="res://Scripts/Logic/StateEngine/state_engine_script.gd" id="2_vlfjb"]
+[ext_resource type="Script" uid="uid://d3qr47m0eltso" path="res://Scripts/Logic/StatisticsList/statistics_list_scr.gd" id="2_wwltf"]
+[ext_resource type="Script" uid="uid://e8unvn1lpxnh" path="res://Scripts/Logic/Statistics/statistic_vector_DD.gd" id="3_eb1wa"]
+[ext_resource type="Script" uid="uid://bi405jf26703l" path="res://Scripts/Logic/Statistics/statistic_number.gd" id="4_eb1wa"]
+
+[node name="PlayerCharacter" type="CharacterBody3D" unique_id=308607481]
+script = ExtResource("1_xbcx4")
+
+[node name="StatisticList" type="Node" parent="." unique_id=941448780]
+script = ExtResource("2_wwltf")
+metadata/_custom_type_script = "uid://d3qr47m0eltso"
+
+[node name="MovementDirection" type="Node" parent="StatisticList" unique_id=1732199591]
+script = ExtResource("3_eb1wa")
+locked = false
+metadata/_custom_type_script = "uid://e8unvn1lpxnh"
+
+[node name="MovementSpeed" type="Node" parent="StatisticList" unique_id=871578558]
+script = ExtResource("4_eb1wa")
+statistic_value = 50.0
+locked = false
+metadata/_custom_type_script = "uid://bi405jf26703l"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2058198660]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2116171323]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1577477853]
+
+[node name="StateEngine" type="Node" parent="." unique_id=181925443]
+script = ExtResource("2_vlfjb")
+metadata/_custom_type_script = "uid://butxpb03fjp7b"
+
+[node name="NormalStateEngine" type="Node" parent="StateEngine" unique_id=385413283]
+script = ExtResource("2_vlfjb")
+metadata/_custom_type_script = "uid://butxpb03fjp7b"
+
+[node name="CarryingStateEngine" type="Node" parent="StateEngine" unique_id=399691674]
+script = ExtResource("2_vlfjb")
+metadata/_custom_type_script = "uid://butxpb03fjp7b"
