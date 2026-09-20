@@ -10,17 +10,18 @@ signal entered_new_state(state_name: StringName)
 var current_state: State:
 	get:
 		return _current_state
-	set(_value):
-		pass
 
 var _current_state: State
 var _states: Dictionary = {}
 var _is_transitioning := false
 
 func _ready() -> void:
+	
 	if not is_root() and actor == null:
 		actor = get_root_engine().actor
-
+		
+	await actor.ready
+	
 	for child in get_children():
 		if child is State:
 			_states[String(child.name).to_lower()] = child

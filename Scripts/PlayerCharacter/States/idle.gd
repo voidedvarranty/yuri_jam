@@ -1,9 +1,13 @@
 extends State
 
-func enter() -> void:
-	await context.ready
-	context.animation_player.play("IDLE")
+@export var bobbing_frequency: float = 0.0
+@export var bobbing_amplitude: float = 0.0
 
+func enter() -> void:
+	context.frequency = bobbing_frequency
+	context.amplitude = bobbing_amplitude
+
+	
 func exit() -> void:
 	pass
 

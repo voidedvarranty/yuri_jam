@@ -47,6 +47,3 @@ mesh = SubResource("CylinderMesh_uiqrb")
 
 [node name="PlayerCharacter" parent="." unique_id=308607481 instance=ExtResource("1_crda1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0920634, 3.4132247, 1.185811)
-
-[node name="PlayerCharacter2" parent="." unique_id=2044672550 instance=ExtResource("1_crda1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3190093, 3.4132247, -3.708395)
